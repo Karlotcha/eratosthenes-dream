@@ -18,6 +18,9 @@ function sieve() {
     , primes = []
     , limit_square = limit * limit
 
+  sieve[0] = false
+  sieve[1] = false
+
   for (var i = 2; i < limit; i++) {
     if (sieve[i] == undefined) {
       // primes.push(i)
@@ -46,9 +49,42 @@ var c      = document.getElementById("canvas")
   , sieve  = sieve()
   , n      = sieve.length
 
-for (var i = 2; i < n; i++) {
+// for (var i = 2; i < n; i++) {
+//   if (sieve[i] == undefined) {
+//     console.log(i)
+//     new Cell(i%limit ,Math.floor(i/limit))
+//   }
+// }
+
+var m_x = limit/2
+  , m_y = limit/2
+  , k = 1
+  , m = 1
+  , direction = 1
+
+new Cell(m_x ,m_y)
+
+for (var i = 1; i < n; i++) {
   if (sieve[i] == undefined) {
-    console.log(i)
-    new Cell(i%limit ,Math.floor(i/limit))
+    new Cell(m_x, m_y)
   }
+
+  // TODO - improve this logic
+  if (direction == 1) {
+    m_y -= 1
+  } else if (direction == 2) {
+    m_x += 1
+  } else if (direction == 3) {
+    m_y += 1
+  } else {
+    m_x -= 1
+  }
+
+  if (k == m) {
+    direction = (direction + 1) % 4
+    if (direction % 2 == 0) { m +=1 }
+    k = 0
+  }
+
+  k += 1
 }

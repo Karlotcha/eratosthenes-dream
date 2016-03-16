@@ -15,3 +15,8 @@ Sieve of Eratosthenes for the first integers:
 - n < 1_000_000
 
 ![screen shot 2016-03-16 at 00 10 28](https://cloud.githubusercontent.com/assets/1086288/13798209/d21b84aa-eb0b-11e5-9685-ea86a60e8dc3.png)
+
+
+Ulam spiral:
+
+![screen shot 2016-03-16 at 21 29 26](https://cloud.githubusercontent.com/assets/1086288/13829732/6c6d68d4-ebc0-11e5-9ba0-ec1df2a0ad87.png)

@@ -2,11 +2,11 @@ $('body').append('<canvas id="canvas" width="1000" height="1000" style="border:1
 
 // global variables
 var canvas_size  = 1000
-  , limit        = 1000 // try 10, 100, 1000
+  , limit        = 100 // try 10, 100, 1000
   , cell_size    = canvas_size / limit
 
 // Cell
-function Cell (x, y) {
+function Cell (x, y, ctx) {
   ctx.fillStyle = 'blue'
   ctx.fill()
   ctx.fillRect(cell_size * x, cell_size * y, cell_size, cell_size)
@@ -52,7 +52,7 @@ var c      = document.getElementById("canvas")
 // for (var i = 2; i < n; i++) {
 //   if (sieve[i] == undefined) {
 //     console.log(i)
-//     new Cell(i%limit ,Math.floor(i/limit))
+//     new Cell(i%limit ,Math.floor(i/limit), ctx)
 //   }
 // }
 
@@ -62,11 +62,11 @@ var m_x = limit/2
   , m = 1
   , direction = 1
 
-new Cell(m_x ,m_y)
+new Cell(m_x ,m_y, ctx)
 
 for (var i = 1; i < n; i++) {
   if (sieve[i] == undefined) {
-    new Cell(m_x, m_y)
+    new Cell(m_x, m_y, ctx)
   }
 
   // TODO - improve this logic
